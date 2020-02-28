@@ -1,0 +1,2 @@
+include ':app', ':animaterecycler'
+rootProject.name='AnimateRecyclerView'

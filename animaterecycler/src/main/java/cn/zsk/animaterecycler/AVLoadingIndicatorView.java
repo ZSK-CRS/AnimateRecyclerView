@@ -12,9 +12,35 @@ import android.view.View;
 
 import androidx.annotation.IntDef;
 
-import cn.zsk.animaterecycler.R;
-import cn.zsk.animaterecycler.animate.BaseIndicatorController;
+import cn.zsk.animaterecycler.animate.foot.BallBeatIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallClipRotateIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallClipRotateMultipleIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallClipRotatePulseIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallGridBeatIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallGridPulseIndicator;
 import cn.zsk.animaterecycler.animate.foot.BallPulseIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallPulseRiseIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallPulseSyncIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallRotateIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallScaleIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallScaleMultipleIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallScaleRippleIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallScaleRippleMultipleIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallSpinFadeLoaderIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallTrianglePathIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallZigZagDeflectIndicator;
+import cn.zsk.animaterecycler.animate.foot.BallZigZagIndicator;
+import cn.zsk.animaterecycler.animate.foot.BaseIndicatorController;
+import cn.zsk.animaterecycler.animate.foot.CubeTransitionIndicator;
+import cn.zsk.animaterecycler.animate.foot.LineScaleIndicator;
+import cn.zsk.animaterecycler.animate.foot.LineScalePartyIndicator;
+import cn.zsk.animaterecycler.animate.foot.LineScalePulseOutIndicator;
+import cn.zsk.animaterecycler.animate.foot.LineScalePulseOutRapidIndicator;
+import cn.zsk.animaterecycler.animate.foot.LineSpinFadeLoaderIndicator;
+import cn.zsk.animaterecycler.animate.foot.PacmanIndicator;
+import cn.zsk.animaterecycler.animate.foot.SemiCircleSpinIndicator;
+import cn.zsk.animaterecycler.animate.foot.SquareSpinIndicator;
+import cn.zsk.animaterecycler.animate.foot.TriangleSkewSpinIndicator;
 
 
 /**
@@ -183,13 +209,93 @@ public class AVLoadingIndicatorView extends View {
 
     private void applyIndicator() {
         switch (mIndicatorId) {
-            default: BallPulse:
+            case BallPulse:
                 mIndicatorController = new BallPulseIndicator();
+                break;
+            case BallGridPulse:
+                mIndicatorController = new BallGridPulseIndicator();
+                break;
+            case BallClipRotate:
+                mIndicatorController = new BallClipRotateIndicator();
+                break;
+            case BallClipRotatePulse:
+                mIndicatorController = new BallClipRotatePulseIndicator();
+                break;
+            case SquareSpin:
+                mIndicatorController = new SquareSpinIndicator();
+                break;
+            case BallClipRotateMultiple:
+                mIndicatorController = new BallClipRotateMultipleIndicator();
+                break;
+            case BallPulseRise:
+                mIndicatorController = new BallPulseRiseIndicator();
+                break;
+            case BallRotate:
+                mIndicatorController = new BallRotateIndicator();
+                break;
+            case CubeTransition:
+                mIndicatorController = new CubeTransitionIndicator();
+                break;
+            case BallZigZag:
+                mIndicatorController = new BallZigZagIndicator();
+                break;
+            case BallZigZagDeflect:
+                mIndicatorController = new BallZigZagDeflectIndicator();
+                break;
+            case BallTrianglePath:
+                mIndicatorController = new BallTrianglePathIndicator();
+                break;
+            case BallScale:
+                mIndicatorController = new BallScaleIndicator();
+                break;
+            case LineScale:
+                mIndicatorController = new LineScaleIndicator();
+                break;
+            case LineScaleParty:
+                mIndicatorController = new LineScalePartyIndicator();
+                break;
+            case BallScaleMultiple:
+                mIndicatorController = new BallScaleMultipleIndicator();
+                break;
+            case BallPulseSync:
+                mIndicatorController = new BallPulseSyncIndicator();
+                break;
+            case BallBeat:
+                mIndicatorController = new BallBeatIndicator();
+                break;
+            case LineScalePulseOut:
+                mIndicatorController = new LineScalePulseOutIndicator();
+                break;
+            case LineScalePulseOutRapid:
+                mIndicatorController = new LineScalePulseOutRapidIndicator();
+                break;
+            case BallScaleRipple:
+                mIndicatorController = new BallScaleRippleIndicator();
+                break;
+            case BallScaleRippleMultiple:
+                mIndicatorController = new BallScaleRippleMultipleIndicator();
+                break;
+            case BallSpinFadeLoader:
+                mIndicatorController = new BallSpinFadeLoaderIndicator();
+                break;
+            case LineSpinFadeLoader:
+                mIndicatorController = new LineSpinFadeLoaderIndicator();
+                break;
+            case TriangleSkewSpin:
+                mIndicatorController = new TriangleSkewSpinIndicator();
+                break;
+            case Pacman:
+                mIndicatorController = new PacmanIndicator();
+                break;
+            case BallGridBeat:
+                mIndicatorController = new BallGridBeatIndicator();
+                break;
+            case SemiCircleSpin:
+                mIndicatorController = new SemiCircleSpinIndicator();
                 break;
         }
         mIndicatorController.setTarget(this);
     }
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = measureDimension(dp2px(DEFAULT_SIZE), widthMeasureSpec);

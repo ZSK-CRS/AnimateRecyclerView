@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -78,14 +80,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         listData = new ArrayList<String>();
-        for(int i = 0; i < 20 ;i++){
+      /*  for(int i = 0; i < 20 ;i++){
             listData.add("item" + i);
-        }
+        }*/
         mAdapter = new MyAdapter(listData);
 
         recyclerView.setAdapter(mAdapter);
 
 
+        findViewById(R.id.tv_clear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listData.clear();
+                mAdapter.notifyDataSetChanged();
+            }
+        });
 
     }
 

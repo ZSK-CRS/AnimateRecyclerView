@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,16 +61,21 @@ public class AnimateRecyclerView extends RecyclerView {
     // 控制多出多少条的时候调用 onLoadMore
     private int limitNumberToCallLoadMore = 1;
 
+    private Context mContext;
+
     public AnimateRecyclerView(Context context) {
         this(context, null);
+        mContext = context;
     }
 
     public AnimateRecyclerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        mContext = context;
     }
 
     public AnimateRecyclerView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        mContext = context;
         init();
     }
 
@@ -302,8 +308,8 @@ public class AnimateRecyclerView extends RecyclerView {
         dragRate = rate;
     }
 
-    // if you can't sure that you are 100% going to
-    // have no data load back from server anymore,do not use this
+    // if you can't sure that you are 100% going to have no data
+    // load back from server anymore,do not use this
     @Deprecated
     public void setEmptyView(View emptyView) {
         this.mEmptyView = emptyView;
